@@ -123,7 +123,7 @@ public class ReentrantLockTest {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}finally{
-					lock.unlock(); //线程a中进行lock()，线程b中使用unlock()抛出异常，测试ReentrantLock能否在其他线程中调用unlock方法
+					lock.unlock(); //线程a中进行lock()，线程b中使用unlock()抛出异常， 测试ReentrantLock能否在其他线程中调用unlock方法
 				}
 				System.out.println("bb");
 			}

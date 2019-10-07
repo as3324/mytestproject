@@ -1,0 +1,12 @@
+
+mybatis-plus:
+  mapper-locations:classpath:mapper/**/*.xml
+
+server:
+  port: 8080
+  context-path: /mpdemo
+  tomcat.max
+
+spring:
+  profiles:
+    active: dev

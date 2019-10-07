@@ -1,0 +1,34 @@
+1.java中如果不在包下建立的类或者接口将无法被有包里面的类或者接口使用。例如javatest
+项目下的ClassA类不在任何包中，所以其包下的com.yej.test.A类中无法创建ClassA类的实例
+
+
+2.配置apache的httpclient日志输出
+项目中增加logback.xml文件，文件路径看各自的项目，我的是springboot，就放在了resources目录下。然后logback.xml文件中配置如下：
+
+<configuration debug="false">
+    <logger name="org.apache" level="DEBUG" />
+    <logger name="org.apache.http.wire" level="DEBUG" />
+    <logger name="org.apache.http.headers" level="INFO" />
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss}  %highlight(%-5level) %magenta(%-4relative) --- [%yellow(%15.15thread)] %cyan(%-40.40logger{39}) : %msg%n"/>
+
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="ERROR">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
+org.apache.http.wire：配置wire输入的日志级别的
+
+org.apache.http.headers：配置headers输入的日志级别的
+
+org.apache：配置org.apache路径下的相关的日志的输出的
+————————————————
+版权声明：本文为CSDN博主「唐朝咖啡」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/u012500848/article/details/95245376
